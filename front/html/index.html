@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포트폴리오</title>
+
+</head>
+
+<style>
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+    top: 100px;
+
+
+  }
+  
+  #intro {
+    background-color: #f4f4f4;
+  }
+  .section.active {
+  opacity: 1;
+  top: 0;
+}
+  /* 추가적인 스타일링 */
+
+</style>
+<body>
+  <header style="background-color: #C3FF93;">
+    <nav>
+      <ul>
+        <li><a href="#intro">자기소개</a></li>
+        <li><a href="#content1">콘텐츠 1</a></li>
+        <li><a href="#content2">콘텐츠 2</a></li>
+        <li><a href="#content3">콘텐츠 3</a></li>
+        <li><a href="#content4">콘텐츠 4</a></li>
+        <li><a href="#content5">콘텐츠 5</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="intro" class="section">
+    <h1>자기소개</h1>
+    <p>안녕하세요, 저는 [이름]입니다.</p>
+    <!-- 자기소개 내용 추가 -->
+  </section>
+
+  <section id="content1" class="section">
+    <h2>콘텐츠 1</h2>
+    <!-- 콘텐츠 1 내용 추가 -->
+  </section>
+
+  <section id="content2" class="section">
+    <h2>콘텐츠 2</h2>
+    <!-- 콘텐츠 2 내용 추가 -->
+  </section>
+
+  <section id="content3" class="section">
+    <h2>콘텐츠 3</h2>
+    <!-- 콘텐츠 3 내용 추가 -->
+  </section>
+
+  <section id="content4" class="section">
+    <h2>콘텐츠 4</h2>
+    <!-- 콘텐츠 4 내용 추가 -->
+  </section>
+
+  <section id="content5" class="section">
+    <h2>콘텐츠 5</h2>
+    <!-- 콘텐츠 5 내용 추가 -->
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+<script>
+    // script.js
+
+    document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('.section');
+
+  function activateSection() {
+    sections.forEach((section, index) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      const scrollPosition = window.pageYOffset;
+
+      if (scrollPosition >= sectionTop - sectionHeight / 2) {
+        section.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', activateSection);
+
+  // 초기 섹션 활성화
+  activateSection();
+});
+</script>
+</html>
